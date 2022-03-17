@@ -1,3 +1,4 @@
+import React from 'react';
 import '../styles/globals.css';
 import {
   createTheme,
@@ -25,14 +26,12 @@ const generateClassName = createGenerateClassName({
   productionPrefix: 'c',
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <ThemeProvider theme={theme}>
-      <StylesProvider generateClassName={generateClassName}>
-        <Component {...pageProps} />
-      </StylesProvider>
-    </ThemeProvider>
-  );
-}
+const MyApp = ({ Component, pageProps }: AppProps) => (
+  <ThemeProvider theme={theme}>
+    <StylesProvider generateClassName={generateClassName}>
+      <Component {...pageProps} />
+    </StylesProvider>
+  </ThemeProvider>
+);
 
 export default MyApp;
